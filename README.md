@@ -73,15 +73,39 @@ You can add more tests in `tests/test_recommender.py`.
 ## Sample Recommendation Output
 
 Paste a sample of your recommender's output here as a text block so a reader can see what it produces:
+Loading songs from data/songs.csv...
+Loaded songs: 18
 
-```
-# e.g.:
-# User profile: genre=indie, mood=chill, energy=low
-# Recommendations:
-#   1. ...
-#   2. ...
-#   3. ...
-```
+Top recommendations:
+
+1. Sunrise City by Neon Echo
+   Score: 4.48
+   Reasons:
+     • genre match (+2.0)
+     • mood match (+1.5)
+     • energy closeness (+0.98)
+
+2. Gym Hero by Max Pulse
+   Score: 2.87
+   Reasons:
+     • genre match (+2.0)
+     • energy closeness (+0.87)
+
+3. Rooftop Lights by Indigo Parade
+   Score: 2.46
+   Reasons:
+     • mood match (+1.5)
+     • energy closeness (+0.96)
+
+4. Beat Drop Thunder by Urban Collective
+   Score: 0.95
+   Reasons:
+     • energy closeness (+0.95)
+
+5. Night Drive Loop by Neon Echo
+   Score: 0.95
+   Reasons:
+     • energy closeness (+0.95)
 
 **Screenshot or video** *(optional)*: <!-- Insert a screenshot or demo video link here -->
 
@@ -110,6 +134,20 @@ Examples:
 You will go deeper on this in your model card.
 
 ---
+
+## Algorithm Recipe and Expected Biases
+
+My finalized recommendation recipe uses a simple weighted scoring system to rank songs for a user profile:
+
+1. Start with the user's preferred genre and mood as the strongest signals.
+2. Compare each candidate song to those preferences and give the highest weight to genre and mood matches.
+3. Add a secondary score based on energy level so songs that are closer to the user's target energy are favored.
+4. Use acousticness as a smaller tie-breaker for users who prefer more acoustic or less produced sounds.
+5. Combine these signals into a single score and return the top recommendations with a short explanation.
+
+A simplified version of the scoring rule looks like this: score = 0.4 × genre match + 0.3 × mood match + 0.2 × energy match + 0.1 × acousticness match.
+
+I expect a few biases in this approach. Because the system is based on a small, hand-built music catalog, it may over-represent certain genres or moods that are more common in the dataset. It may also favor songs that fit a narrow idea of the "right" energy level and overlook more varied or surprising recommendations. In real-world recommenders, these kinds of biases can make the system feel repetitive or less fair to users with different tastes.
 
 ## Reflection
 
