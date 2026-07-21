@@ -17,17 +17,21 @@ Replace this paragraph with your own summary of what your version does.
 
 ## How The System Works
 
-Explain your design in plain language.
+My Short Paragraph: The idea of real-world recommendations incorporate many factors into ensuring the user's experience is to get them to enter in a flow state, which is to enjoy the music at all times. Thus, companies such as YouTube or Spotify are using different types of filtering and analyzing different behaviors to provide each user the right recommendations, which is providing predictions on what music they are likely to listen and enjoy next. Additionally, my version of a music recommender is the user to experience their musical 'vibe', which is to have the recommender find songs that create a similar emotional atmosphere and listening feel. 
 
-Some prompts to answer:
+Song Objects
+- Mood
+- Energy
+- Valence
+- Acousticness
+- Tempo_BPM
+- Genre
 
-- What features does each `Song` use in your system
-  - For example: genre, mood, energy, tempo
-- What information does your `UserProfile` store
-- How does your `Recommender` compute a score for each song
-- How do you choose which songs to recommend
-
-You can include a simple diagram or bullet list if helpful.
+UserProfile Objects
+- Musical Vibe
+- Music Playlists
+- Listening History
+- Personal Registration Details (Email, DOB, Linked Social Accounts)
 
 ---
 
