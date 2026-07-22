@@ -93,9 +93,9 @@ def load_songs(csv_path: str) -> List[Dict]:
             songs.append(row)
     return songs
 
-GENRE_MATCH_POINTS = 2.0
+GENRE_MATCH_POINTS = 1.0
 MOOD_MATCH_POINTS = 1.5
-ENERGY_MATCH_POINTS = 1.0
+ENERGY_MATCH_POINTS = 2.0
 ACOUSTICNESS_MATCH_POINTS = 0.5
 
 def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
